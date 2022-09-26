@@ -25,35 +25,12 @@ int eratostene(int n)
         return 1;
     if(n ==2)
         return 0;
-    int pos = 3,l = 1,posbis = 0,isprime = 0;
-    int era[n/2];
-    era[0]=2;
+    int pos= 3;
     while(pos<n)
     {
-        while(posbis<l && isprime == 0)
-        {
-            if(pos%era[posbis] == 0)
-                isprime = 1;
-            posbis++;
-        }
-        if (isprime == 0)
-        {
-            era[l] = pos;
-            l++;
-        }
-        else
-        {
-            isprime = 0;
-        }
-        posbis = 0;
-        pos+=2;
-    }
-    pos= 0;
-    while(pos<l)
-    {
-        if(n%era[pos]==0)
+        if(n%pos==0)
             return 1;
-        pos++;
+        pos+=2;
     }
     return 0;
 }
