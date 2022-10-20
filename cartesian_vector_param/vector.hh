@@ -25,18 +25,8 @@ public:
     Vector& operator -= (const Vector& rhs);
     Vector& operator *=(const value& rhs);
 
-    inline value& operator[](size_t n)  {
-#ifdef CHECKS
-    if (n > NDIM) throw std::out_of_range("Not a valid index : " + std::to_string(n));
-#endif
-    return data[n];
-}
-    inline const value& operator[](size_t n) const {
-#ifdef CHECKS
-    if (n > NDIM) throw std::out_of_range("Not a valid index : " + std::to_string(n));
-#endif
-    return data[n];
-}
+    value operator[](size_t idx) const;
+    value& operator[](size_t idx);
 private:
     value data[NDIM];
 };

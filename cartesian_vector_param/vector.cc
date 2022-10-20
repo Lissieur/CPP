@@ -82,3 +82,11 @@ value operator*(const Vector& vec1, const Vector& vec2)
         result += vec1[i] * vec2[i];
     return result;
 }
+
+value Vector::operator[](size_t idx) const{
+    return v[idx];
+}
+
+value& Vector::operator[](size_t idx){
+    return v[idx];
+}
